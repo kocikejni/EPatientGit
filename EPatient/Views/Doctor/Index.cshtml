@@ -1,0 +1,105 @@
+﻿@model EPatient.CollectionViewModels.CollectionOfAll
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<body>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+    </div>
+    <p class="text-success">@ViewBag.Messege</p>
+    <div class="panel panel-container">
+        <div class="row">
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    <div class="row no-padding">
+                        <em class="fa fa-xl fa-building color-blue"></em>
+                        <div class="large count">@Model.Departments.Count()</div>
+                        <div class="text-muted">Departments</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                <div class="panel panel-blue panel-widget border-right">
+                    <div class="row no-padding">
+                        <em class="fa fa-xl fa-user-md color-orange"></em>
+                        <div class="large count">@Model.Doctors.Count()</div>
+                        <div class="text-muted">Doctors</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                <div class="panel panel-orange panel-widget border-right">
+                    <div class="row no-padding">
+                        <em class="fa fa-xl fa-user color-teal"></em>
+                        <div class="large">@Model.Patients.Count()</div>
+                        <div class="text-muted">Patients</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    <div class="row no-padding">
+                        <em class="fa fa-xl fa-pencil-square color-red"></em>
+                        <div class="large count">@Model.ActiveAppointments.Count()</div>
+                        <div class="text-muted">Active Appointments</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                <div class="panel panel-blue panel-widget border-right">
+                    <div class="row no-padding">
+                        <em class="fa fa-xl fa-pencil-square color-teal"></em>
+                        <div class="large count">@Model.PendingAppointments.Count()</div>
+                        <div class="text-muted">Pending Appointments</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--/.row-->
+        <ul class="nav menu">
+            @*<li class="active"><a href="@Url.Action("Index", "Doctor")"><em class="fa fa-dashboard">&nbsp;</em> DashBoard</a></li>*@
+            <li>
+                <h2>Prescriptions</h2>
+                <div style="width: 30% !important" class="children content">
+                    @Html.ActionLink("List of Patients", "ListOfPatients", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                </div>
+            </li>
+
+            <li>
+                <h2>Prescriptions</h2>
+                <div style="width: 30% !important" class="children content">
+                    @Html.ActionLink("Add Prescription", "AddPrescription", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                    @Html.ActionLink("List of Prescriptions", "ListOfPrescription", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                </div>
+            </li>
+            <li>
+                <h2>Schedules</h2>
+                <div style="width: 30% !important" class="children content">
+                    @Html.ActionLink("Your Schedule", "ScheduleDetail", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                </div>
+            </li>
+            <li>
+                <h2>Appointments</h2>
+                <div style="width: 30% !important" class="children content">
+                    @Html.ActionLink("Add Appointment", "AddAppointment", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                    @Html.ActionLink("Active Appointments", "ActiveAppointments", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                    @Html.ActionLink("Pending Appointments", "PendingAppointments", "Doctor", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                </div>
+            </li>
+            <li>
+                <h2>Manage Account</h2>
+                <div style="width: 30% !important" class="children content">
+                    @Html.ActionLink("Change Password", "ChangePassword", "Manage", null, new { @class = "list-group-item", @style = "margin: 0px -20px; font-size: 13px" })
+                </div>
+            </li>
+
+        </ul>
+    </div><!--/.sidebar-->
+    
+</body>
+

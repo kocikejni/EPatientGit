@@ -1,0 +1,39 @@
+﻿@model EPatient.Models.Image
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientFullName)
+        </dd>
+
+
+        <dd>
+            <img src="@Url.Content(Model.ImagePath)" width="800" height="500" multiple />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id}) |
+    @Html.ActionLink("Back to List", "ListOfImages")
+</p>

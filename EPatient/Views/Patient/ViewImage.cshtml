@@ -1,0 +1,35 @@
+﻿@model EPatient.Models.Image
+
+@{
+    ViewBag.Title = "View Image";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <br />
+
+        <dt>
+
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ImagePath)" width="250" height="250" multiple />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ListOfImages")
+</p>

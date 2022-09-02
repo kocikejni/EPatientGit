@@ -1,0 +1,31 @@
+﻿@model EPatient.Models.Prescription
+
+@{ ViewBag.Title = "DeletePrescription";}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Prescription</li>
+        <li class="active">Delete Prescription</li>
+    </ol>
+</div>
+
+<h2>Delete Prescription</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    @Html.ActionLink("Back to List", "ListOfPrescription")
+                </div>}
+</div>

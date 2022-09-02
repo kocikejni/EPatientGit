@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EPatient.Models.Image>
+
+@{
+    ViewBag.Title = "ListOfImages";
+}
+
+<h2>ListOfImages</h2>
+
+<p>
+    @Html.ActionLink("Add", "AddImage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientFullName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientFullName)
+            </td>
+            <td>
+                @Html.ActionLink("View", "ViewImage", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

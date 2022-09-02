@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EPatient.Models.Files>
+
+@{
+    ViewBag.Title = "ListOfFiles";
+}
+
+<h2>ListOfFiles</h2>
+
+<p>
+    @Html.ActionLink("Add", "AddFile")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientFullName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientFullName)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Go Back", "Index")
+</p>

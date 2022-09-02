@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EPatient.Models.Prescription>
+
+@{ ViewBag.Title = "ListOfPrescription";}
+
+
+<h2>List Of Prescription</h2>
+<br />
+<p>
+    @Html.ActionLink("Create New", "AddPrescription", null, new { @class = "btn btn-primary" })
+</p>
+<table id="table_id" class="table">
+    <thead>
+        <tr>
+            <th>
+                Patient UserName
+            </th>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.UserName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PatientName)
+    </td>
+    <td>
+        @item.PrescriptionAddDate.ToShortDateString()
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditPrescription", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "DeletePrescription", new { id = item.Id })|
+        @Html.ActionLink("Details", "PrescriptionView", new { id = item.Id }) |
+        @Html.ActionLink("Print", "PrintPartialViewOfPrescriptionToPdf", new { id = item.Id })
+    </td>
+</tr>}
+    </tbody>
+
+</table>
+
+@section scripts {
+    <script>$(document).ready(function () {
+            $("#table_id").dataTable();
+        });</script>
+}
